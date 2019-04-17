@@ -4,7 +4,8 @@ import Header from './Header';
 import Formular from './Formular';
 import List from './List';
 import  {validateBudget} from '../helper';
-import  {checkBudget} from '../helper';
+//import  {checkBudget} from '../helper';
+import BudgetControl from './BudgetControl';
 
 class App extends Component {
 
@@ -64,6 +65,10 @@ class App extends Component {
             <div className='one-half column'>
               <List 
                 expenses={this.state.expenses}
+              />
+              <BudgetControl
+                budget={this.state.budget}
+                remaining={this.state.remaining}
               />
             </div>
           </div>

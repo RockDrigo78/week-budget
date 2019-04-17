@@ -3,6 +3,8 @@ import '../css/App.css';
 import Header from './Header';
 import Formular from './Formular';
 import List from './List';
+import  {validateBudget} from '../helper';
+import  {checkBudget} from '../helper';
 
 class App extends Component {
 
@@ -15,19 +17,35 @@ class App extends Component {
     }
   }
 
+  componentDidMount(){
+    this.getBudget();
+  }
+
+  getBudget = () => {
+    let budget = prompt("Write your Budget");
+
+    let result = validateBudget(budget);
+    if(result){
+      this.setState({
+        budget: budget,
+        remaining: budget
+      });
+    } else {
+      this.getBudget();
+    }
+  }
+  
+ 
 
 
   addExpense = (expense) => {
-    const expenses = {...this.props.expenses}
+    const expenses = {...this.state.expenses};
 
     expenses[`expense-${Date.now()}`] = expense;
-
-    console.log(expenses);
 
     this.setState({
       expenses: expenses
     });
-
   }
 
   render() {
@@ -45,13 +63,11 @@ class App extends Component {
             </div>
             <div className='one-half column'>
               <List 
-                
+                expenses={this.state.expenses}
               />
             </div>
           </div>
         </div>
-
-
       </div>
     );
   }

@@ -4,8 +4,8 @@ class Formular extends Component {
 
   constructor(props){
     super(props);
-    this.nameExpenseRef = React.createRef();
-    this.quantityRef = React.createRef();
+    this.nameExpense = React.createRef();
+    this.quantity = React.createRef();
 }
 
   createExpense = (e) => {
@@ -13,14 +13,13 @@ class Formular extends Component {
 
     //object creation
     let expense = {
-        nameExpenseRef: this.nameExpenseRef.current.value,
-        quantityRef: this.quantityRef.current.value
+        nameExpense: this.nameExpense.current.value,
+        quantity: this.quantity.current.value
     }
-    // to reset the formular fields
-    e.currentTarget.reset();
-
     this.props.addExpense(expense);
 
+    // to reset the formular fields
+    e.currentTarget.reset();
 
 }
 
@@ -28,17 +27,14 @@ class Formular extends Component {
     return(
       <form onSubmit={this.createExpense}>
           <h2>Add expenses here</h2>
-
           <div className="campo">
               <label>Name</label>
-              <input ref={this.nameExpenseRef} className="u-full-width" type="text" placeholder="E.g. Food" required />
+              <input ref={this.nameExpense} className="u-full-width" type="text" placeholder="E.g. Food" required />
           </div>
-
           <div className="campo">
               <label>Quantity</label>
-              <input ref={this.quantityRef} className="u-full-width" type="text" placeholder="E.g. 300" required/>
+              <input ref={this.quantity} className="u-full-width" type="text" placeholder="E.g. 300" required/>
           </div>
-
           <input className="button-primary u-full-width" type="submit" value="Add" />
       </form>
     )
@@ -47,4 +43,3 @@ class Formular extends Component {
 }
 
 export default Formular;
-

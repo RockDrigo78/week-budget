@@ -1,6 +1,5 @@
 import React, { Component }from 'react';
 import Expense from './Expense';
-import BudgetControl from './BudgetControl';
 
 class List extends Component {
   render() {

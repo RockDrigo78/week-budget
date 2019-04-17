@@ -36,16 +36,24 @@ class App extends Component {
     }
   }
   
- 
-
-
   addExpense = (expense) => {
     const expenses = {...this.state.expenses};
 
     expenses[`expense-${Date.now()}`] = expense;
 
+    this.substractBudget(expense.quantity);
+
     this.setState({
       expenses: expenses
+    });
+  }
+
+  substractBudget = quantity => {
+    let substractNumber = Number(quantity);
+    let remaining = this.state.remaining;
+    remaining -= substractNumber;
+    this.setState({
+      remaining: remaining
     });
   }
 

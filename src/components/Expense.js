@@ -9,7 +9,7 @@ class Expense extends Component {
       <li className="gastos">
         <p>
           {nameExpense}
-          <span className="gasto">{quantity}</span>        
+          <span className="gasto">${quantity}</span>        
         </p>
       </li>
     );

@@ -4,7 +4,6 @@ import Header from './Header';
 import Formular from './Formular';
 import List from './List';
 import  {validateBudget} from '../helper';
-//import  {checkBudget} from '../helper';
 import BudgetControl from './BudgetControl';
 
 class App extends Component {
@@ -53,7 +52,7 @@ class App extends Component {
     let remaining = this.state.remaining;
     remaining -= substractNumber;
     this.setState({
-      remaining: remaining
+      remaining: remaining.toFixed(2)
     });
   }
 

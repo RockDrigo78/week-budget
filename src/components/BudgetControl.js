@@ -9,7 +9,8 @@ class BudgetControl extends Component {
         <Budget
           budget={this.props.budget}
         />
-        <Remaining 
+        <Remaining
+          budget={this.props.budget} 
           remaining={this.props.remaining}
         />
       </div>

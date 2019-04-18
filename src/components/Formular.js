@@ -33,7 +33,7 @@ class Formular extends Component {
           </div>
           <div className="campo">
               <label>Quantity</label>
-              <input ref={this.quantity} className="u-full-width" type="text" placeholder="E.g. 300" required/>
+              <input ref={this.quantity} className="u-full-width" type="number" placeholder="E.g. 300" required/>
           </div>
           <input className="button-primary u-full-width" type="submit" value="Add" />
       </form>
